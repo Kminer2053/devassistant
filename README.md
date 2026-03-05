@@ -47,3 +47,19 @@ MCP(Stitch, GitHub Vertex-safe) 연동은 [09_OPENCODE_SETUP.md](docs/09_OPENCOD
 - **토큰·API 키·비밀번호**는 이 리포지토리에 커밋하지 마세요.
 - 서버에서는 **환경변수**, **systemd override**, 또는 **.env**(git에 올리지 않음)로만 관리하세요.
 - `.gitignore`에 `.env`, `*-auth.json`, `auth.json`이 포함되어 있습니다.
+
+## 원격 저장소 배포
+
+로컬에서 초기 커밋까지 완료된 상태입니다. GitHub에 **devassistant** 이름으로 빈 리포지토리를 만든 뒤:
+
+```bash
+git remote add origin https://github.com/<your-org>/devassistant.git
+git push -u origin main
+```
+
+또는 SSH:
+
+```bash
+git remote add origin git@github.com:<your-org>/devassistant.git
+git push -u origin main
+```
