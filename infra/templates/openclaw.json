@@ -1,0 +1,55 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "port": 18789,
+    "auth": {
+      "mode": "token",
+      "token": "CHANGE_ME_LONG_RANDOM_TOKEN"
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "tools": {
+    "profile": "coding",
+    "deny": [
+      "group:automation",
+      "sessions_send",
+      "sessions_spawn"
+    ],
+    "exec": {
+      "security": "full",
+      "ask": "always"
+    }
+  },
+  "acp": {
+    "enabled": false,
+    "dispatch": { "enabled": true },
+    "backend": "acpx",
+    "defaultAgent": "opencode",
+    "allowedAgents": ["opencode"],
+    "maxConcurrentSessions": 8,
+    "stream": {
+      "coalesceIdleMs": 300,
+      "maxChunkChars": 1200
+    },
+    "runtime": {
+      "ttlMinutes": 120
+    }
+  },
+  "elevated": {
+    "enabled": false
+  },
+  "plugins": {
+    "entries": {
+      "acpx": {
+        "enabled": false,
+        "config": {
+          "permissionMode": "approve-all",
+          "nonInteractivePermissions": "deny"
+        }
+      }
+    }
+  }
+}

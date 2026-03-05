@@ -1,0 +1,15 @@
+[Unit]
+Description=OpenCode serve (headless)
+After=network.target
+
+[Service]
+Type=simple
+User=devassistant
+Group=devassistant
+Environment=OPENCODE_SERVER_PASSWORD=CHANGE_ME
+ExecStart=/home/devassistant/.opencode/bin/opencode serve --hostname 127.0.0.1 --port 4096
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

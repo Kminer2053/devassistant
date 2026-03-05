@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-plugin-devbridge",
+  "version": "1.0.0",
+  "description": "DevBridge tool for OpenClaw",
+  "type": "module",
+  "main": "index.js",
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  }
+}

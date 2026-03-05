@@ -1,0 +1,25 @@
+[Unit]
+Description=DevBridge API
+After=network.target opencode.service
+
+[Service]
+Type=simple
+User=devassistant
+Group=devassistant
+WorkingDirectory=/srv/devassistant/devbridge
+Environment=NODE_ENV=production
+Environment=PORT=8080
+Environment=HOST=127.0.0.1
+Environment=DB_PATH=/var/lib/devbridge/devbridge.db
+Environment=DEVBRIDGE_TOKEN=CHANGE_ME
+Environment=OPENCODE_BASE_URL=http://127.0.0.1:4096
+Environment=OPENCODE_BIN=/home/devassistant/.opencode/bin/opencode
+Environment=OPENCODE_USERNAME=opencode
+Environment=OPENCODE_SERVER_PASSWORD=CHANGE_ME
+# Backend: pty (default, opencode attach) | opencode (HTTP API). Uncomment to use HTTP: Environment=DEVBRIDGE_OPENCODE_BACKEND=opencode
+ExecStart=/usr/bin/node dist/index.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

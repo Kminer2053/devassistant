@@ -1,0 +1,32 @@
+{
+  "agent": {
+    "plan": {
+      "mode": "primary",
+      "model": "openai/gpt-5.2",
+      "variant": "high"
+    },
+    "build": {
+      "mode": "primary",
+      "model": "openai/gpt-5.3-codex"
+    },
+    "architect": {
+      "description": "구조·보안·확장성 판단. 아키텍처/API/데이터 설계.",
+      "mode": "subagent",
+      "model": "google/gemini-3.1-pro-preview",
+      "variant": "high",
+      "tools": { "write": false, "edit": false, "bash": false, "github_*": false }
+    },
+    "reviewer": {
+      "description": "논리/버그/엣지/리팩터링 지적. 코드 리뷰.",
+      "mode": "subagent",
+      "model": "google/gemini-3.1-pro-preview",
+      "tools": { "write": false, "edit": false, "bash": false, "github_*": false }
+    },
+    "qa": {
+      "description": "테스트 시나리오·테스트 코드·재현절차. QA/SDET.",
+      "mode": "subagent",
+      "model": "google/gemini-3-flash-preview",
+      "tools": { "write": true, "edit": true, "bash": true, "github_*": false }
+    }
+  }
+}

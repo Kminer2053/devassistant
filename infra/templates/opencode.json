@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "default": "ask",
+    "edit": "ask",
+    "bash": "ask",
+    "external_directory": {
+      "/srv/repos/**": "allow",
+      "**": "ask"
+    },
+    "bash_allow": [
+      "git status",
+      "git diff",
+      "git log --oneline -5",
+      "grep -r",
+      "ls -la",
+      "pwd",
+      "cat"
+    ]
+  }
+}

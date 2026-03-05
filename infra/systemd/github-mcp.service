@@ -1,0 +1,18 @@
+[Unit]
+Description=GitHub MCP server (Vertex-safe tool schema)
+After=network.target
+
+[Service]
+Type=simple
+User=devassistant
+Group=devassistant
+WorkingDirectory=/srv/devassistant/github-mcp
+EnvironmentFile=-/srv/devassistant/github-mcp/.env
+Environment=GITHUB_MCP_PORT=5050
+Environment=GITHUB_BASE_URL=https://api.github.com
+ExecStart=/usr/bin/node dist/index.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

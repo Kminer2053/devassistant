@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.db
+*.log
+
+# Auth / secrets (do not commit)
+*-auth.json
+auth.json

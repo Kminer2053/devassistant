@@ -1,0 +1,11 @@
+{
+  "id": "openclaw-plugin-devbridge",
+  "name": "ACP Help",
+  "version": "1.0.0",
+  "description": "OpenClaw plugin: /help, /명령어 for ACP/OpenCode usage. OpenCode is controlled via OpenClaw ACP (acpx) and sessions_spawn.",
+  "configSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  }
+}
