@@ -316,7 +316,7 @@ Google Stitch 디자인을 React 등 코드로 내려받는 데 쓰입니다.
 
 #### 옵션 A — API 키만 (권장, 헤드리스 서버)
 
-**[piyushcreates/stitch-mcp](https://github.com/piyushcreates/stitch-mcp)** 를 쓰면 **`STITCH_API_KEY` 환경변수만** 있으면 됩니다. gcloud 인증 불필요. 공식 Stitch API(`https://stitch.googleapis.com/mcp`)에 직접 연결합니다.
+**[piyushcreates/stitch-mcp](https://github.com/piyushcreates/stitch-mcp)** 를 쓰면 **`STITCH_API_KEY` 환경변수만** 있으면 됩니다. gcloud 인증 불필요. 공식 Stitch API(`https://stitch.googleapis.com/mcp`)에 직접 연결합니다. 이 레포의 **스키마 호환 패치**([infra/stitch-mcp/stitch_mcp.py](../infra/stitch-mcp/stitch_mcp.py))는 `parent`/`projectId`를 `projects/{id}` 형식으로 정규화하고 에러 응답을 구조화해, Stitch API와의 불일치로 인한 "invalid argument" 오류를 줄입니다. 서버에는 `scripts/deploy_stitch_mcp_patch.sh` 또는 rsync로 해당 파일을 `~/stitch-mcp/stitch_mcp.py`에 덮어쓰면 됩니다.
 
 - **요구사항**: Python 3.10+, `pip install mcp requests`, [Stitch API 키](https://stitch.withgoogle.com/docs/mcp/setup) 발급.
 - **서버 설치 예시** (한 번만, venv 사용 권장 — 시스템 Python이 externally-managed일 때):
